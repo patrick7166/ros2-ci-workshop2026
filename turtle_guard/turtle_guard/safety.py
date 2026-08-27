@@ -37,7 +37,7 @@ def clamp(value: float, limit: float) -> float:
     """
     if limit < 0.0:
         raise UnsafeLimitError(f'speed limit must be >= 0, got {limit}')
-    return min(limit, value)
+    return max(-limit, min(limit, value))
 
 
 def clamp_twist(linear_x, angular_z, linear_limit, angular_limit):
